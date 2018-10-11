@@ -30,3 +30,10 @@ export const artistDetail = id => {
     payload: request
   };
 };
+
+export const clearArtistDetail = () => {
+  return {
+    type: 'CLEAR_ARTIST_DETAIL',
+    payload: null
+  };
+};

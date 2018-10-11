@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { artistDetail } from '../actions';
+import { artistDetail, clearArtistDetail } from '../actions';
 
 class ArtistContainer extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.artistDetail(id);
+  }
+
+  componentWillUnmount() {
+    this.props.clearArtistDetail();
   }
 
   artistTemplate = data =>
@@ -60,5 +64,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { artistDetail }
+  { artistDetail, clearArtistDetail }
 )(ArtistContainer);

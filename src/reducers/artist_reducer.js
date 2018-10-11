@@ -15,6 +15,11 @@ export default function(state = {}, action) {
         ...state,
         artistData: action.payload
       };
+    case 'CLEAR_ARTIST_DETAIL':
+      return {
+        ...state,
+        artistData: action.payload
+      };
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { artistListAll } from '../actions';
+import { artistListAll, artistList } from '../actions';
 
 import Search from '../components/search';
 import Artistlist from '../components/artistlist';
@@ -13,7 +13,7 @@ class Home extends Component {
 
   getKeywords = event => {
     let key = event.target.value;
-    console.log(key);
+    this.props.artistList(key);
   };
 
   render() {
@@ -35,5 +35,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { artistListAll }
+  { artistListAll, artistList }
 )(Home);

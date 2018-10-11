@@ -20,3 +20,13 @@ export const artistListAll = () => {
     payload: request
   };
 };
+
+export const artistDetail = id => {
+  const request = axios
+    .get(`${URL}/artists?id=${id}`)
+    .then(response => response.data);
+  return {
+    type: 'GET_ARTISTS_DETAIL',
+    payload: request
+  };
+};
